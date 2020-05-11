@@ -32,7 +32,7 @@ The data is persistence host in MongoDb Atlas. (see the note)
   
 ## Note
   
-You need add .env file like this
+You need add .env file in folder backend, like this
 
 <pre><code> 
   DATABASE_URL={YOU_DATABASE_URL}
