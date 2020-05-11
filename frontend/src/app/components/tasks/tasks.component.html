@@ -1,0 +1,35 @@
+<ul class="list-group">
+   <button class="btn btn-primary" (click)="clear()">New task</button>
+   <li 
+      [ngClass]="{'bg-success': task.status == 'COMPLETED'}" 
+      class="list-group-item list-group-item-action" 
+      *ngFor="let task of tasks; let i = index"
+      (click)="editTask(task)"
+      [class.active]="task == selectedTask"
+   >
+      <span class="badge badge-primary">{{i + 1}}</span>       
+      {{task.name}}: {{task.description}}
+   </li>
+   <div class="card mt-4">
+      <div class="card-body">
+         <div class="card-title">
+            Create a new task
+         </div>
+         <div class="form-group">
+            <input class="form-control" type="text" [(ngModel)]="selectedTask.name" placeholder="Name" required autofocus>
+         </div>
+         <div class="form-group">
+            <textarea class="form-control" [(ngModel)]="selectedTask.description" rows="3" placeholder="Description"></textarea>
+         </div>
+         <button class="btn btn-primary" (click)="edit ? updateTask() : addTask()">
+            {{ edit ? 'Update' : 'Create' }}
+         </button>
+         <button class="btn btn-danger ml-4" *ngIf="selectedTask._id" (click)="deleteTask()">
+            Delete
+         </button>
+         <button class="btn btn-success ml-4" *ngIf="selectedTask._id && selectedTask.status !== 'COMPLETED'" (click)="completeTask()">
+            Done
+         </button>
+      </div>
+   </div>
+</ul>
