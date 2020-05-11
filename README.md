@@ -1,5 +1,5 @@
 # Screenshot
-![](docs/screenshot.png)
+![](docs/Screenshot.png)
 
 # TODOapp
 This app allows you to create, edit, delete and mark a task as completed.
